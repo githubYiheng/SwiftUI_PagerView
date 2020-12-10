@@ -21,10 +21,10 @@ public struct PagerView<Content: View & Identifiable>: View {
     public var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
-                VStack {
+                VStack(alignment: .center) {
                     ForEach(self.pages) { page in
                         page
-                            .frame(width: nil, height: geometry.size.height)
+                            .frame(width: geometry.size.width, height: geometry.size.height)
                     }
                 }
             }
