@@ -13,6 +13,11 @@ public struct PagerView<Content: View & Identifiable>: View {
     @State
     private var isGestureActive: Bool = false
 
+    public init(_ index: Binding<Int>, _ pages: [Content]) {
+        self._index = index
+        self.pages = pages
+    }
+    
     public var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
