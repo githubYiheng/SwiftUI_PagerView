@@ -5,7 +5,7 @@ public struct PagerView<Content: View & Identifiable>: View {
     @Binding
     public var index: Int
     
-    private(set) var pages: [Content]
+    public var pages: [Content]
     
     @State
     private var offset: CGFloat = 0
