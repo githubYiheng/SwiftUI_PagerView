@@ -21,12 +21,12 @@ public struct PagerView<Content: View & Identifiable>: View {
     public var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
-                VStack(alignment: .center) {
+                LazyVGrid(columns: [GridItem(.fixed(geometry.size.height))], content: {
                     ForEach(self.pages) { page in
                         page
                             .frame(width: geometry.size.width, height: geometry.size.height)
                     }
-                }
+                })
             }
             .content.offset(y: self.isGestureActive ? self.offset : -geometry.size.height * CGFloat(self.index))
             .gesture(DragGesture().onChanged({ value in
